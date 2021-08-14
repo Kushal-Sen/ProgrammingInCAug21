@@ -8,15 +8,25 @@ int add2Numbers(int a, int b) // function definition : Question what is the diff
 // Error :  Compilation/Runtime/Logical
 int main()
 {
-	int a,b,c,sum;
-	printf("enter first number ");
-	scanf("%d",&a);
-	printf("enter second number ");
-	scanf("%d",&b);
+	int a,sum=0,i;  //,c,sum;  
 	
-	printf("enter third number ");
-	scanf("%d",&c);
+	for( i = 1 ; i <= 12 ; i++)  //  i++   ==  i=i+1
+	{
+		printf("enter %d number",i);
+		scanf("%d",&a);
+		sum = add2Numbers(sum,a);
+	}
 	
-	sum = add2Numbers(a,b,c);
+
+	//printf("enter second number ");
+	//scanf("%d",&b);
+	
+	//printf("enter third number ");
+	//scanf("%d",&c);
+	
+	//sum = add2Numbers(a,add2Numbers(b,c));
+	//sum = add2Numbers(add2Numbers(a,b),c));  //Still the same
 	printf("sum:%d",sum);
 }
+
+//Create a calculator to add 12 positive numbers and we can guarantee that the numbers and the result can fit in "INT" 
