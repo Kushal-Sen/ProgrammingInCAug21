@@ -8,7 +8,7 @@ int main()
 	// printf("Enter a number to check if it is prime");
 	// scanf("%d",&num);
 	
-	for(num=1;counterPrimes< 5;num++)
+	for(num=1;counterPrimes< 30;num++)
 	{
 			counter = 0;
 			for(i = 2 ; i < num ; i++ ) // i starts from 2 and num = 1       so the inside for loop will not execute    
@@ -29,3 +29,5 @@ int main()
 		}
 	}
 }
+
+//Extent this to print all prime numbers within   1 to 500
