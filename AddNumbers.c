@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdbool.h>
 
 int add2Numbers(int,int); // function declaration 
 int add2Numbers(int a, int b) // function definition : Question what is the difference and What is the need?
@@ -8,11 +9,11 @@ int add2Numbers(int a, int b) // function definition : Question what is the diff
 bool isEvenNumber(int); // function declaration for checking is even or not   : output   true if number is even, else false
 bool isEvenNumber(int a)
 {
-	if(0 == a%2) // if a is divided by 2   check if the remainder is 0
+	if(0 == a%2) // if a is divided by 2   check if the remainder is 0  (0 == a%2 && a%100 == 0 )  or  (0 == a%2 || a%100 == 0 )
 	{
 		return true;
 	}
-	else
+	else // else block is optional
 	{
 		return false;
 	}
@@ -51,7 +52,7 @@ int main()
 	
 	//sum = add2Numbers(a,add2Numbers(b,c));
 	//sum = add2Numbers(add2Numbers(a,b),c));  //Still the same
-	printf("sum:%d",sum);
+	//printf("sum:%d",sum);
 }
 
 //Create a calculator to add 'n' positive numbers and we can guarantee that the numbers and the result can fit in "INT" 
