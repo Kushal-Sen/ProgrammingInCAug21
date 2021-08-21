@@ -29,7 +29,7 @@ int main()
 		//call function a  - >  a would know what to do
 		printf("Enter the limit");
 		scanf("%d",&limit);
-		for(num=1;counterPrimes< limit;num++)
+		for(num=1;counterPrimes< limit;num++) // While loop  : num = 1; while(counterPrimes < limit) { some statement; num++; }  // do while      do{}while(condition);
 		{
 			if(isPrime(num))
 			{
