@@ -26,43 +26,23 @@ int main()
 	
 	if(choice == 1)
 	{
+		//call function a  - >  a would know what to do
 		printf("Enter the limit");
 		scanf("%d",&limit);
 		for(num=1;counterPrimes< limit;num++)
 		{
-			counter = 0;
-			num%2
-			for(i = 3 ; i < num ; i = i+ 2 ) // i starts from 2 and num = 1       so the inside for loop will not execute    
+			if(isPrime(num))
 			{
-				if(num%i  == 0)
-				{
-				counter = 1;
-				}			
+				counterPrimes++;
+				printf("%d th prime number is : %d \n",counterPrimes,num);
 			}
-		if(counter == 0)// even if loop does not run, it is okay.... Why ?    because the default value is '0'  ie: we start with the assumption that all numbers are prime...   So what went wrong ?
-		{
-			printf("Number is Prime  %d",num);
-			counterPrimes++;
-		}
-		else
-		{
-			printf("Number is Non Prime");
-		}
 		}
 	}
 	else if (choice == 2)
 	{
 		printf("Enter the number");
 		scanf("%d",&limit);
-		counter = 0;
-		for(i = 2 ; i < limit ; i++ ) // i starts from 2 and num = 1       so the inside for loop will not execute    
-			{
-				if(limit%i  == 0)
-				{
-				counter = 1;
-				}			
-			}
-		if(counter == 0)// even if loop does not run, it is okay.... Why ?    because the default value is '0'  ie: we start with the assumption that all numbers are prime...   So what went wrong ?
+		if(isPrime(limit))// even if loop does not run, it is okay.... Why ?    because the default value is '0'  ie: we start with the assumption that all numbers are prime...   So what went wrong ?
 		{
 			printf("Number is Prime  %d",limit);
 		}
@@ -77,24 +57,11 @@ int main()
 		scanf("%d",&limit);
 		for(num=1;counterPrimes< limit;num++)
 		{
-			counter = 0;
-			for(i = 2 ; i < num ; i++ ) // i starts from 2 and num = 1       so the inside for loop will not execute    
+			if(isPrime(num))
 			{
-				if(num%i  == 0)
-				{
-				counter = 1;
-				}			
+				counterPrimes++;
+				primestore	= num;
 			}
-		if(counter == 0)// even if loop does not run, it is okay.... Why ?    because the default value is '0'  ie: we start with the assumption that all numbers are prime...   So what went wrong ?
-		{
-			primestore = num;
-			//printf("Number is Prime  %d",num);
-			counterPrimes++;
-		}
-		else
-		{
-			//printf("Number is Non Prime");
-		}
 		}
 		printf("the nth prime is %d",primestore);
 	}
