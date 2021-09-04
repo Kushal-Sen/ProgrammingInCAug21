@@ -4,12 +4,14 @@
 int add2Numbers(int,int); // function declaration 
 int add2Numbers(int a, int b) // function definition : Question what is the difference and What is the need?
 {
-	 return a+b;
+	int c = a-b;
+	 return c;
 }
 bool isEvenNumber(int); // function declaration for checking is even or not   : output   true if number is even, else false
 bool isEvenNumber(int a)
 {
-	if(0 == a%2) // if a is divided by 2   check if the remainder is 0  (0 == a%2 && a%100 == 0 )  or  (0 == a%2 || a%100 == 0 )
+	int c = a%3;
+	if(0 == c) // if a is divided by 2   check if the remainder is 0  (0 == a%2 && a%100 == 0 )  or  (0 == a%2 || a%100 == 0 )
 	{
 		return true;
 	}
@@ -25,6 +27,13 @@ int main()
 	
 	printf("check if a number is even or not, enter the number ?");
 	scanf("%d",&n);
+	
+	printf("1");
+	printf("2");
+	printf("3");
+	printf("4");
+	printf("5");
+	printf("6");
 	
 	if(isEvenNumber(n))
 	{
