@@ -4,6 +4,42 @@
 int arrayA[maxLength];
 int logicalLength;
 int returnSmallAmongst2(int,int);
+// we will sort the array in ascending order
+//   	1 we will find the min pos.
+//		2 swap minimum position with the first element in the "reduced length array"
+//      repeat 1 and 2
+//   7 6 5 1 9 - > 1 6 5 7 9 -> 1 5 6 7 9 -> 1 5 6 7 9 -> 1 5 6 7 9 now it is sorted
+
+int findPosOfMinInArrayFromStartingIndex(int start)
+{
+	int i;
+	int min = arrayA[start];
+	int pos = start;
+	for(i = start+1 ; i < logicalLength ; i++)
+	{
+		if(arrayA[i]< min)
+		{
+			min = arrayA[i];
+			pos = i;
+		}
+	}
+	return pos;
+	
+}
+
+void sortArrayAscending()
+{
+	int i,j,t,smallestNumberPos;
+	for(i=0;i<logicalLength-1;i++)
+	{
+		smallestNumberPos = findPosOfMinInArrayFromStartingIndex(i);	
+		t = arrayA[i];
+		arrayA[i] = arrayA[smallestNumberPos];
+		arrayA[smallestNumberPos] = t;
+	}
+}
+
+
 int returnSmallAmongst2(int a,int b)
 {
 	if(a < b)
@@ -26,6 +62,19 @@ bool isEven(int a)
 	{
 		return false;
 	}
+}
+
+int searchFirstInstanceOfValue(int var) // var is the value of the element you want to search; so return is int because we want to return the index of the element; return -1
+{
+	int i;
+	for(i=0;i<logicalLength;i++)
+	{
+		if(arrayA[i] == var)
+		{
+			return i;
+		}
+	}
+	return -1;
 }
 
 int deleteValueinPosition(int pos)
@@ -66,6 +115,22 @@ int insertValueinPosition(int value,int pos)
 	//arrayA[pos] = value;
 	return 0;
 }
+int findPosOfMinInArray()
+{
+	int i;
+	int min = arrayA[0];
+	int pos = 0;
+	for(i = 1 ; i < logicalLength ; i++)
+	{
+		if(arrayA[i]< min)
+		{
+			min = arrayA[i];
+			pos = i;
+		}
+	}
+	return pos;
+	
+}
 void printArray()
 {
 	int i ;
@@ -79,47 +144,44 @@ void printArray()
 int main()
 {
 	
-int i,smallest,input; // local variable have local scope
-logicalLength = 0;
+	int i,smallest,input,pos; // local variable have local scope
+	logicalLength = 0;
 
-do
-{
-	if(logicalLength <= maxLength)
+	do
 	{
-		
-	printf("Enter Number  -1 to stop");
-	scanf("%d",&input);
-	arrayA[logicalLength++] = input;
+		if(logicalLength <= maxLength)
+		{
+			printf("Enter Number  -1 to stop");
+			scanf("%d",&input);
+			arrayA[logicalLength++] = input;
+		}
+		else
+		{
+			break;
+		}
+	}
+	while(input > -1);
+	logicalLength--;
+	/*printArray();
+	deleteValueinPosition(3);
+	printArray();
+	insertValueinPosition(7,2);
+	printArray();
+	pos = searchFirstInstanceOfValue(7);
+	if( pos == -1)
+	{
+		printf("Value not found"); 
 	}
 	else
 	{
-		break;
+		printf("Value at %d",pos);
 	}
-	
-}
-while(input > -1);
-logicalLength--;
-printArray();
-deleteValueinPosition(3);
-printArray();
-if(insertValueinPosition(7,2) == 0)
-{
-	logicalLength++;
-}
-printArray();
-
-// we have an array with logicalLength and non negative integers
-
-//scanf("")
-
-//for (i = index ;i < logicalLength)
-
+	printf("Pos of Min %d",findPosOfMinInArray());
+	*/
+	printf("Sorting Araay Now");
+	sortArrayAscending();
+	printArray();
 }
 
-// all non negative integers.
-// insert a new element in an existing array at index 'j'   if there is space and j is less than or equal to the logicalsize  0 1 5 2 2   5 at pos 2
-// delete an  element in an existing array from index j
-
-// Complete this
-// search for an element in an array
-// find the mistake in the length of the array as it is printing 1 element extra ** 
+ 
+// to find the position of the minimum value
